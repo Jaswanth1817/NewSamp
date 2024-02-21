@@ -10,7 +10,7 @@ const Addition = () => {
 
   const handleServerResponse = async () => {
     try {
-      const response = await fetch('http://ec2-18-215-175-163.compute-1.amazonaws.com:9000/api/addition', {
+      const response = await fetch('http://ec2-18-215-175-163.compute-1.amazonaws.com:9001/api/addition', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
