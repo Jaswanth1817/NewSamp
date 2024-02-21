@@ -1,29 +1,35 @@
-// server.js
 const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
+const path = require('path');
 
 const app = express();
-const port = process.env.PORT || 3001;
+const port = process.env.PORT || 9000;
 
-app.use(cors());
+// Allow requests from the specified AWS EC2 instance
+const corsOptions = {
+  origin: 'http://ec2-18-215-175-163.compute-1.amazonaws.com',
+  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+  credentials: true,
+  optionsSuccessStatus: 204,
+};
+
+app.use(cors(corsOptions));
 app.use(bodyParser.json());
+app.use(express.static(path.join(__dirname, 'public')));
 
-const addedValues = []; // Store added values in an array
+const addedValues = [];
 
 app.post('/api/addition', (req, res) => {
   const { firstNumber, secondNumber } = req.body;
   const result = firstNumber + secondNumber;
 
-  // Store the result in the array
   addedValues.push(result);
 
-  // Send the result along with the response
   res.json({ result, addedValues });
 });
 
 app.get('/api/added-values', (req, res) => {
-  // Retrieve all added values
   res.json({ addedValues });
 });
 
