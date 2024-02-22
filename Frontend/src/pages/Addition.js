@@ -10,7 +10,7 @@ const Addition = () => {
 
   const handleServerResponse = async () => {
     try {
-      const response = await fetch('http://ec2-18-215-175-163.compute-1.amazonaws.com:9001/api/addition', {
+      const response = await fetch('http://ec2-18-215-175-163.compute-1.amazonaws.com:9000/api/addition', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -32,7 +32,7 @@ const Addition = () => {
 
   const fetchAddedValues = async () => {
     try {
-      const response = await fetch('http://localhost:3001/api/added-values');
+      const response = await fetch('http://ec2-18-215-175-163.compute-1.amazonaws.com:9000/api/added-values');
 
       if (!response.ok) {
         throw new Error('Failed to fetch added values');
