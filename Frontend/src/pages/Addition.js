@@ -4,6 +4,7 @@ import { Button, Container, Form, Stack } from "react-bootstrap";
 const Addition = () => {
   const [firstNumber, setFirstNumber] = useState(0);
   const [secondNumber, setSecondNumber] = useState(0);
+  const [resultFromFrontend, setResultFromFrontend] = useState(null);
   const [resultFromServer, setResultFromServer] = useState(null);
   const [addedValues, setAddedValues] = useState([]);
 
@@ -50,6 +51,11 @@ const Addition = () => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
+    // Calculate result on the frontend
+    const resultFrontend = firstNumber + secondNumber;
+    setResultFromFrontend(resultFrontend);
+    
+    // Send request to server and handle server response
     await handleServerResponse();
   };
 
@@ -76,6 +82,12 @@ const Addition = () => {
       </Form>
 
       <Stack className="my-3">
+        {resultFromFrontend !== null && (
+          <p>
+            Your addition result (from frontend) is: {resultFromFrontend}
+          </p>
+        )}
+
         {resultFromServer !== null && (
           <p>
             Your addition result (from server) is: {resultFromServer}
