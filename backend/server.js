@@ -8,7 +8,7 @@ const port = process.env.PORT || 9000;
 
 // Allow requests from the specified AWS EC2 instance
 const corsOptions = {
-  origin: 'http://ec2-18-215-175-163.compute-1.amazonaws.com',
+  origin: 'http://ec2-34-228-37-113.compute-1.amazonaws.com',
   methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
   credentials: true,
   optionsSuccessStatus: 204,
