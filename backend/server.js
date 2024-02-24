@@ -22,11 +22,17 @@ const addedValues = [];
 
 app.post('/api/addition', (req, res) => {
   const { firstNumber, secondNumber } = req.body;
+  
+  // Calculate result on the backend
   const result = firstNumber + secondNumber;
+  
+  // Calculate result on the frontend (received from the client)
+  const resultFrontend = req.body.resultFromFrontend;
 
-  addedValues.push(result);
+  // Store both results
+  addedValues.push({ result, resultFrontend });
 
-  res.json({ result, addedValues });
+  res.json({ result, resultFrontend, addedValues });
 });
 
 app.get('/api/added-values', (req, res) => {
