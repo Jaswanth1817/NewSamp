@@ -94,7 +94,7 @@ const Addition = () => {
           </p>
         )}
 
-        <p>Added values sent to the server: {addedValues.join(', ')}</p>
+         <p>Added values sent to the server: {addedValues.join(', ')}</p>
       </Stack>
     </Container>
   );
