@@ -10,7 +10,7 @@ import { Person } from 'react-bootstrap-icons';
 const Main = () => {
   return (
     <React.Fragment>
-      <Navbar expand="lg" className="bg-body-tertiary">
+      <Navbar expand="lg" bg="light" variant="light" className="text-dark">
         <Container>
           <Navbar.Brand>
             <Person size={30} className="d-inline-block align-top me-2" />
