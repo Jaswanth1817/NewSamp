@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Button, Container, Form, Stack } from "react-bootstrap";
+import { Button, Card, Container, Form, Stack } from "react-bootstrap";
 
 const Addition = () => {
   const [firstNumber, setFirstNumber] = useState(0);
@@ -61,25 +61,32 @@ const Addition = () => {
 
   return (
     <Container className="my-3">
-      <Form style={{ width: "max-content" }} onSubmit={handleSubmit}>
-        <Form.Group className="mb-3">
-          <Form.Label>Enter first number</Form.Label>
-          <Form.Control
-            type="number"
-            onChange={(e) => setFirstNumber(Number(e.target.value))}
-          />
-        </Form.Group>
+      <Card style={{ width: '18rem' }}>
+        <Card.Body>
+          <Card.Title>Addition Form</Card.Title>
+          <Form onSubmit={handleSubmit}>
+            <Form.Group className="mb-3">
+              <Form.Label>Enter first number</Form.Label>
+              <Form.Control
+                type="number"
+                onChange={(e) => setFirstNumber(Number(e.target.value))}
+              />
+            </Form.Group>
 
-        <Form.Group className="mb-3">
-          <Form.Label>Enter second number</Form.Label>
-          <Form.Control
-            type="number"
-            onChange={(e) => setSecondNumber(Number(e.target.value))}
-          />
-        </Form.Group>
+            <Form.Group className="mb-3">
+              <Form.Label>Enter second number</Form.Label>
+              <Form.Control
+                type="number"
+                onChange={(e) => setSecondNumber(Number(e.target.value))}
+              />
+            </Form.Group>
 
-        <Button as="input" type="submit" value="Submit" />
-      </Form>
+            <Button variant="primary" type="submit">
+              Submit
+            </Button>
+          </Form>
+        </Card.Body>
+      </Card>
 
       <Stack className="my-3">
         {resultFromFrontend !== null && (
@@ -93,8 +100,6 @@ const Addition = () => {
             Your addition result (from server) is: {resultFromServer}
           </p>
         )}
-
-         <p>Added values sent to the server: {addedValues.join(', ')}</p>
       </Stack>
     </Container>
   );

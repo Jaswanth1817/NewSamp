@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import PImage from Jaswanth_Logojpg;
 import { Container, Row, Col, Image, Stack } from "react-bootstrap";
 import { PencilSquare } from 'react-bootstrap-icons';
+import jaswanthLogo from '../pages/Jaswanth_Logo.jpg';
 
 const Profile = () => {
   const [name, setName] = useState("Jaswanth Kongara");
@@ -32,7 +32,7 @@ const Profile = () => {
       <Row>
         <Col xs={6} md={4}>
           <Image
-            src={PImage}
+            src={jaswanthLogo}
             thumbnail
             height={300}
             width={300}
